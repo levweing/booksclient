@@ -1,0 +1,27 @@
+<section class="container  mt-5">
+    <form #form="ngForm" (submit)="formSubmitted(form.value)">
+        <fieldset>
+            <legend>Sign In</legend>
+
+            <div class="form-group">
+                <label htmlFor="usernameInput">Username</label>
+
+                <input id="usernameInput"
+                    autoFocus class="form-control" name="username" ngModel/>
+            </div>
+
+            <div className="form-group">
+                <label htmlFor="passwordInput">Password</label>
+
+                <input id="passwordInput"
+                    class="form-control" name="password" ngModel
+                    type="password"/>
+            </div>
+        </fieldset>
+
+        <div class="mt-5 text-center">
+            <button class="btn btn-primary">Login</button>
+            <p class="text-danger" [hidden]="isSuccess">Login error</p>
+        </div>
+    </form>
+</section>

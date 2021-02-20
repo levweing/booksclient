@@ -1,0 +1,38 @@
+<section>
+    <header><h3>Books</h3></header>
+
+    <table class="table table-bordered table-hover">
+        <thead class="text-center">
+            <tr>
+                <th>ISBN</th>
+                <th>Author</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let currentBook of books" style="transition: .75s;">
+                <td>{{currentBook.isbn}}</td>
+                <td>{{formatAuthors(currentBook.authors)}}</td>
+                <td>{{currentBook.name}}</td>
+                <td class="text-right">{{currentBook.price | currency}}</td>
+                <td class="text-right">{{currentBook.quantity}}</td>
+                <td>
+                    <button class="btn btn-primary"
+                        [hidden]="isInBasket(currentBook)"
+                        (click)="addToBasket(currentBook)">
+                        Add to basket
+                    </button>
+                    <button class="btn btn-warning"
+                        [hidden]="!isInBasket(currentBook)"
+                        (click)="removeFromBasket(currentBook)">
+                        Remove
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
